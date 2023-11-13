@@ -1,4 +1,4 @@
-import org.test.lib
+import org.test.lib.ParallelUtils
 
 def call() {
   def parallelUtils = new ParallelUtils(steps, this)
