@@ -1,6 +1,6 @@
 package org.test.lib
 
-import static groovyx.gpars.GParsPool.*
+import static groovyx.gpars.GParsPool.withPool
 
 class ParallelUtils {
     
