@@ -34,5 +34,4 @@ class ParallelUtils {
     def fun2(s) {
         println "function-2 - ${s}"
     }
-  }
 }
