@@ -9,7 +9,8 @@ class ParallelUtils {
         this.steps = steps
         this.script = script
     }
-    
+
+    @NonCPS
     def runPara() {
         def environments = ["development", "staging", "production", "testing", "stress", "pre-production", "post-production", "qa"]
 
