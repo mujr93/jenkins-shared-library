@@ -1,5 +1,5 @@
-def call(script) {
+def call() {
   withGroovy {
-    sh "groovy src/org/test/lib/${script}.groovy"
+    sh "groovy src/org/test/lib/ParallelUtils.groovy"
   }
 }
