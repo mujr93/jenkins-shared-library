@@ -15,10 +15,11 @@ class ParallelUtils {
 
         for (def i = 0; i < environments.size(); i++) {
             def kobe = environments[i]
-            Thread.start {
+            def t = new Thread({
                 sleep(10000)
                 steps.echo kobe
-            }
+            })
+            t.start()
         }
     }
 }
