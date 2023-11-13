@@ -1,7 +1,5 @@
 package org.test.lib
 
-import static groovyx.gpars.GParsPool.withPool
-
 class ParallelUtils {
     
     def steps
