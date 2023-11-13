@@ -27,6 +27,7 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:3.0.19'
     compile 'org.apache.ivy:ivy:2.4.0'
     compile 'org.jenkins-ci.main:jenkins-core:2.164.1'
+    compile 'org.codehaus.gpars:gpars:1.2.1'
     def staplerGAV = 'org.kohsuke.stapler:stapler:1.255'
     compile staplerGAV
     annotationProcessor staplerGAV
