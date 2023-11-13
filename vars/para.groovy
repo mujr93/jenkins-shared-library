@@ -1,5 +1,5 @@
-def call(scriptPath) {
+def call(script) {
   withGroovy {
-    sh "groovy ${scriptPath}"
+    sh "groovy src/org/test/lib/${scriptPath}"
   }
 }
