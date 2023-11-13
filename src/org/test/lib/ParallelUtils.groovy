@@ -16,12 +16,14 @@ class ParallelUtils {
         
         for (def i = 0; i < environments.size(); i++) {
             def kobe = environments[i]
-            threads << Thread.start {
+            threads[i] = Thread.start {
                 sleep(10000)
                 println kobe
             }
         }
-        
-        threads*.join()
+
+        for (def i = 0; i < threads.size(); i++) {
+            threads[i].join()
+        }
     }
 }
