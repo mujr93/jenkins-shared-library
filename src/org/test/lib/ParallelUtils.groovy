@@ -13,9 +13,7 @@ class ParallelUtils {
     def runPara() {
     def testSteps = ['setupDevkit', 'executeDevkit', 'restoreDevkit']
 
-    testSteps.stream()
-        .filter(s -> s != 'setupDevkit')
-        .forEach(s -> steps.echo s)
+    testSteps.stream().filter(s -> s != 'setupDevkit').forEach(s -> steps.echo s)
     testSteps.stream().forEach(s -> steps.echo s)
     testSteps.parallelStream().forEach(s -> steps.echo s)
   }
