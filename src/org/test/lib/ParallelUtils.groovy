@@ -7,6 +7,8 @@ for (def i = 0; i < environments.size(); i++) {
     }
 }
 
+println args.size()
+
 for (def i = 0; i < args.size(); i++) {
     println args[i]
 }
