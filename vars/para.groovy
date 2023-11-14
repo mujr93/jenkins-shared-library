@@ -1,5 +1,6 @@
+import org.test.lib.ParallelUtils
+
 def call() {
-  withGroovy {
-    sh "groovy src/org/test/lib/ParallelUtils.groovy 1,2,3,4 foo bar"
-  }
+  def parallelUtils = new ParallelUtils()
+  parallelUtils.runPara(["development", "staging", "production", "testing", "stress", "pre-production", "post-production", "qa"])
 }
