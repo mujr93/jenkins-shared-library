@@ -22,7 +22,7 @@ class ParallelUtils {
             }
         """
         steps.withGroovy {
-            steps.sh """groovy -e "${s}""""
+            steps.sh "groovy -e \"${s}\""
         }
     }
 }
