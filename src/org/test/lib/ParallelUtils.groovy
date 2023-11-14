@@ -12,7 +12,7 @@ class ParallelUtils {
 
     def runPara(environments) {
         steps.withGroovy {
-            steps.sh "groovy -e 'new ParallelUtils(${steps}, ${script}).testPara()'"
+            steps.sh "groovy -e 'new ParallelUtils(steps, script).testPara()'"
         }
     }
 
