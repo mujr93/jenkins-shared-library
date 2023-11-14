@@ -13,7 +13,7 @@ class ParallelUtils {
     def runPara(environments) {
         def s = """
             def proc = 'groovy -v'.execute()
-            println "${proc.in.text ?: proc.err.text}"
+            println proc.in.text ?: proc.err.text
             def environments = ['kobe', 'lebron', 'cp3']
             for (def i = 0; i < environments.size(); i++) {
                 def environment = environments[i]
