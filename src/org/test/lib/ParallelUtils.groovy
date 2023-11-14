@@ -6,3 +6,6 @@ for (def i = 0; i < environments.size(); i++) {
         println environment
     }
 }
+
+sh 'echo kobe from shell'
+echo 'kobe from echo'
