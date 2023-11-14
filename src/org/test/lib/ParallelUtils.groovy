@@ -7,5 +7,6 @@ for (def i = 0; i < environments.size(); i++) {
     }
 }
 
-sh 'echo kobe from shell'
-echo 'kobe from echo'
+for (def i = 0; i < args.size(); i++) {
+    println args[i]
+}
