@@ -11,11 +11,16 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
-        for (def i = 0; i < environments.size(); i++) {
-            def environment = environments[i]
-            Thread.start {
-                println environment
+        def s = """
+            for (def i = 0; i < ${environments}.size(); i++) {
+                def environment = ${environments}[i]
+                Thread.start {
+                    println environment
+                }
             }
+        """
+        withGroovy {
+            sh "groovy -e '${s}'"
         }
     }
 }
