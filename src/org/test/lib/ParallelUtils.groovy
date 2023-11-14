@@ -12,11 +12,12 @@ class ParallelUtils {
 
     def runPara(environments) {
         def s = """
+            'ls'.execute()
             def environments = ['kobe', 'lebron', 'cp3']
             for (def i = 0; i < environments.size(); i++) {
                 def environment = environments[i]
                 Thread.start {
-                    echo environment
+                    println environment
                 }
             }
         """
