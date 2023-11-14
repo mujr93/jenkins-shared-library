@@ -1,7 +1,7 @@
 class SomeClass {
 
     static void main(String... args) {
-        def environments = ["development", "staging", "production", "testing", "stress", "pre-production", "post-production", "qa"]
+        def environments = ["development", "kobe", "production", "testing", "stress", "pre-production", "post-production", "qa"]
 
         for (def i = 0; i < environments.size(); i++) {
             def environment = environments[i]
