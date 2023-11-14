@@ -11,7 +11,9 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
+        def e = environments.join(',')
         def s = """
+            def environments = ${e.split(',')}
             for (def i = 0; i < environments.size(); i++) {
                 def environment = environments[i]
                 Thread.start {
