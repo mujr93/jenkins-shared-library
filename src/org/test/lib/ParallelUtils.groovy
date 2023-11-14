@@ -12,8 +12,8 @@ class ParallelUtils {
 
     def runPara(environments) {
         def s = """
-            for (def i = 0; i < ${environments}.size(); i++) {
-                def environment = ${environments}[i]
+            for (def i = 0; i < environments.size(); i++) {
+                def environment = environments[i]
                 Thread.start {
                     println environment
                 }
