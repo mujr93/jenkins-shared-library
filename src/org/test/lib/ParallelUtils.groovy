@@ -1,14 +1,21 @@
-def environments = ["development", "staging", "production", "testing", "stress", "pre-production", "post-production", "qa"]
+package org.test.lib
 
-for (def i = 0; i < environments.size(); i++) {
-    def environment = environments[i]
-    Thread.start {
-        println environment
+class ParallelUtils {
+
+    def steps
+    def script
+
+    def ParallelUtils(steps, script) {
+        this.steps = steps
+        this.script = script
     }
-}
 
-println args.size()
-
-for (def i = 0; i < args.size(); i++) {
-    println args[i]
+    def runPara(environments) {
+        for (def i = 0; i < environments.size(); i++) {
+            def environment = environments[i]
+            Thread.start {
+                println environment
+            }
+        }
+    }
 }
