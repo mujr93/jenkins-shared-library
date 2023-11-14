@@ -11,9 +11,8 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
-        def e = environments.join(',')
         def s = """
-            def environments = ${e.split(',')}
+            def environments = ['kobe', 'lebron', 'cp3']
             for (def i = 0; i < environments.size(); i++) {
                 def environment = environments[i]
                 Thread.start {
