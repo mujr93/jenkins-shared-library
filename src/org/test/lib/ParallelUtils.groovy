@@ -1,6 +1,6 @@
 class SomeClass {
 
-    static void main(args) {
+    static void main(String... args) {
         def environments = ["development", "staging", "production", "testing", "stress", "pre-production", "post-production", "qa"]
 
         for (def i = 0; i < environments.size(); i++) {
