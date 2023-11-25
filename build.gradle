@@ -1,8 +1,23 @@
-apply plugin: 'groovy'
-apply plugin: "java"
+buildscript {
+    repositories {
+        mavenCentral()
+    }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+    dependencies {
+        classpath "org.codehaus.gpars:gpars:1.2.1"
+    }
+}
+
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 // follow the structure as dictated by Jenkins:
 sourceSets {
@@ -24,15 +39,14 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:3.0.19'
-    compile 'org.apache.ivy:ivy:2.4.0'
-    compile 'org.jenkins-ci.main:jenkins-core:2.164.1'
-    compile 'org.codehaus.gpars:gpars:1.2.1'
+    implementation 'org.codehaus.groovy:groovy-all:2.4.21'
+    implementation 'org.apache.ivy:ivy:2.4.0'
+    implementation 'org.jenkins-ci.main:jenkins-core:2.164.1'
+    implementation 'org.codehaus.gpars:gpars:1.2.1'
     def staplerGAV = 'org.kohsuke.stapler:stapler:1.255'
-    compile staplerGAV
+    implementation staplerGAV
     annotationProcessor staplerGAV
-    compile 'org.jenkins-ci.plugins.workflow:workflow-step-api:2.19@jar'
-    compile 'org.jenkins-ci.plugins:pipeline-utility-steps:2.2.0@jar'
-    compile 'org.jenkinsci.plugins:pipeline-model-definition:1.7.2@jar'
-
+    implementation 'org.jenkins-ci.plugins.workflow:workflow-step-api:2.19@jar'
+    implementation 'org.jenkins-ci.plugins:pipeline-utility-steps:2.2.0@jar'
+    implementation 'org.jenkinsci.plugins:pipeline-model-definition:1.7.2@jar'
 }
