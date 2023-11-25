@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b94b1f7d897dbcf1534daac714befc61087e1337fcb46f6fa3e350f613ce0b36
-size 394
+package org.test.lib
+
+import groovyx.gpars.GParsPool
+
+class ParallelUtils {
+
+    def steps
+    def script
+
+    def ParallelUtils(steps, script) {
+        this.steps = steps
+        this.script = script
+    }
+
+    def runPara(environments) {
+        GParsPool.withPool {
+            environments.eachParallel {
+                steps.echo it
+            }
+        }
+    }
+}
