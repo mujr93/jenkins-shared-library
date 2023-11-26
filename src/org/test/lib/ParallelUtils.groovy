@@ -1,5 +1,7 @@
 package org.test.lib
 
+import com.cloudbees.groovy.cps.NonCPS
+
 import java.util.concurrent.*
 
 class ParallelUtils {
@@ -10,6 +12,7 @@ class ParallelUtils {
         this.script = script
     }
 
+    @NonCPS
     def runPara(environments) {
         script.echo "Before: ${Thread.currentThread().getName()}"
 
