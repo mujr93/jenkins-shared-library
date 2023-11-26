@@ -1,7 +1,6 @@
 package org.test.lib
 
 import com.cloudbees.groovy.cps.NonCPS
-import java.util.stream.*
 
 class ParallelUtils {
 
@@ -11,13 +10,15 @@ class ParallelUtils {
         this.script = script
     }
 
+    @NonCPS
     def runPara(environments) {
         environments.stream()
             .parallel()
             .forEach({ test("${it}") })
     }
 
+    @NonCPS
     def test(s) {
-        script.sh "echo ${s}"
+        script.echo s
     }
 }
