@@ -1,7 +1,7 @@
 def info(message) {
-  return "[INFO]: ${message}"
+  echo "[INFO]: ${message}"
 }
 
 def error(message) {
-  return "[ERROR]: ${message}"
+  echo "[ERROR]: ${message}"
 }
