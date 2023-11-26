@@ -12,12 +12,9 @@ class ParallelUtils {
 
     @NonCPS
     def runPara(environments) {
-        for (def i = 0; i < environments.size(); i++) {
-            def environment = environments[i]
-            Thread.start {
-                test environment
-            }
-        }
+        Stream.of("a", "b", "c", "a1", "b1", "c1", "a2", "b2", "c2")
+            .parallel()
+            .forEach({ test("${it}") })
     }
 
     def test(s) {
