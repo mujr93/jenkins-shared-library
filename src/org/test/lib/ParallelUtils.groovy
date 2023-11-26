@@ -11,10 +11,6 @@ class ParallelUtils {
     def runPara(environments) {
         environments.stream()
             .parallel()
-            .forEach({ println("${it}") })
-    }
-
-    def test(s) {
-        script.echo s
+            .forEach({ script.log.info("${it}") })
     }
 }
