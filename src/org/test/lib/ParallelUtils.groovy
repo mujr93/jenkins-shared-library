@@ -11,13 +11,17 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
+        script.echo "Before: ${Thread.currentThread().getName()}"
+
         def executorService = Executors.newFixedThreadPool(environments.size())
 
         for (int i = 0; i < environments.size(); i++) {
             def environment = environments[i]
             executorService.submit {
-                script.echo environment
+                script.echo "During: ${Thread.currentThread().getName()} - ${environment}"
             }
         }
+
+        script.echo "After: ${Thread.currentThread().getName()}"
     }
 }
