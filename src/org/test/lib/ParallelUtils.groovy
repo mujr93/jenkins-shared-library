@@ -15,10 +15,6 @@ class ParallelUtils {
     def runPara(environments) {
         Stream.of("a", "b", "c", "a1", "b1", "c1", "a2", "b2", "c2")
             .parallel()
-            .forEach({ test("${it}") })
-    }
-
-    def test(s) {
-        script.echo s
+            .forEach({ script.echo "${it}" })
     }
 }
