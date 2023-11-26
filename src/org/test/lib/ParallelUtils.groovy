@@ -16,7 +16,7 @@ class ParallelUtils {
     def runPara(environments) {
         GParsPool.withPool(environments.size()) {
             def list = Collections.synchronizedList(environments)
-            list.eachParallel {
+            [1, 2, 3, 4, 5].eachParallel {
                 steps.echo it
             }
         }
