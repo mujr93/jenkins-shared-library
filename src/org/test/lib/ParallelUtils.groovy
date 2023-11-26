@@ -1,5 +1,6 @@
 package org.test.lib
 
+import com.cloudbees.groovy.cps.NonCPS
 @groovy.lang.Grab('org.codehaus.gpars:gpars:1.2.1')
 import groovyx.gpars.GParsPool
 
@@ -13,10 +14,10 @@ class ParallelUtils {
         this.script = script
     }
 
+    @NonCPS
     def runPara(environments) {
         GParsPool.withPool(environments.size()) {
-            def list = Collections.synchronizedList(environments)
-            [1, 2, 3, 4, 5].eachParallel {
+            environments.eachParallel {
                 steps.echo it
             }
         }
