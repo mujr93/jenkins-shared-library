@@ -14,10 +14,14 @@ class ParallelUtils {
 
     @NonCPS
     def runPara(environments) {
-        GParsPool.withPool(environments.size()) {
-            environments.eachParallel {
-                script.sh "echo ${it}"
+        try {
+            GParsPool.withPool(environments.size()) {
+                environments.eachParallel {
+                    script.log.info "${it}"
+                }
             }
+        } catch (ignored) {
+            script.log.error 'Cannot run in parallel'
         }
     }
 }
