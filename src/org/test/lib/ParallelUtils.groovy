@@ -15,15 +15,9 @@ class ParallelUtils {
 
         for (int i = 0; i < environments.size(); i++) {
             def environment = environments[i]
-            executorService.execute {
-                try {
-                    script.echo environment
-                } catch (e) {
-                    e.printStackTrace()
-                }
+            executorService.submit {
+                script.echo environment
             }
         }
-
-        executorService.shutdown()
     }
 }
