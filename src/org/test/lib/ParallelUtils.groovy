@@ -10,7 +10,6 @@ class ParallelUtils {
         this.script = script
     }
 
-    @NonCPS
     def runPara(environments) {
         environments.stream()
             .parallel()
