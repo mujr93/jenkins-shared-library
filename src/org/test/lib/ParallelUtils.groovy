@@ -6,11 +6,9 @@ import groovyx.gpars.GParsPool
 
 class ParallelUtils {
 
-    def steps
     def script
 
-    ParallelUtils(steps, script) {
-        this.steps = steps
+    ParallelUtils(script) {
         this.script = script
     }
 
@@ -18,7 +16,7 @@ class ParallelUtils {
     def runPara(environments) {
         GParsPool.withPool(environments.size()) {
             environments.eachParallel {
-                steps.echo it
+                script.echo it
             }
         }
     }
