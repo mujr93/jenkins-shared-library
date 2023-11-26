@@ -16,7 +16,7 @@ class ParallelUtils {
     def runPara(environments) {
         GParsPool.withPool(environments.size()) {
             environments.eachParallel {
-                println it
+                script.sh "echo ${it}"
             }
         }
     }
