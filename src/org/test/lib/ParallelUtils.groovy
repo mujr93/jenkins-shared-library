@@ -8,13 +8,13 @@ class ParallelUtils {
     def steps
     def script
 
-    def ParallelUtils(steps, script) {
+    ParallelUtils(steps, script) {
         this.steps = steps
         this.script = script
     }
 
     def runPara(environments) {
-        GParsPool.withPool {
+        GParsPool.withPool(environments.size()) {
             environments.eachParallel {
                 steps.echo it
             }
