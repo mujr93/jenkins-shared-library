@@ -11,20 +11,19 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
-        ExecutorService executorService = Executors.newFixedThreadPool(environments.size())
-        List<CompletableFuture<Void>> futures = environments
+        def executorService = Executors.newFixedThreadPool(environments.size())
+
         for (int i = 0; i < environments.size(); i++) {
             def environment = environments[i]
-            CompletableFuture<Void> future = CompletableFuture.runAsync({
+            executorService.execute {
                 try {
                     script.echo environment
-                } catch (InterruptedException e) {
+                } catch (e) {
                     e.printStackTrace()
                 }
-            }, executorService)
-            futures.add(future)
+            }
         }
-        CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join()
+
         executorService.shutdown()
     }
 }
