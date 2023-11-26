@@ -13,7 +13,7 @@ class ParallelUtils {
 
     @NonCPS
     def runPara(environments) {
-        Stream.of("a", "b", "c", "a1", "b1", "c1", "a2", "b2", "c2")
+        environments.stream()
             .parallel()
             .forEach({ script.echo "${it}" })
     }
