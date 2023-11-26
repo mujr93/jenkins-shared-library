@@ -18,6 +18,6 @@ class ParallelUtils {
     }
 
     def test(s) {
-        script.echo s
+        script.sh "echo ${s}"
     }
 }
