@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.codehaus.groovy:groovy-all:2.4.21'
+        classpath 'org.codehaus.gpars:gpars:1.2.1'
+    }
+}
+
 plugins {
     id 'groovy'
 }
@@ -27,5 +38,6 @@ dependencies {
     implementation 'org.jenkins-ci.plugins.workflow:workflow-step-api:2.24'
     implementation 'org.jenkins-ci.plugins:pipeline-utility-steps:2.16.0'
     implementation 'org.jenkinsci.plugins:pipeline-model-definition:1.9.3'
+    implementation 'org.codehaus.gpars:gpars:1.2.1'
     testImplementation 'org.jenkins-ci.plugins.workflow:workflow-basic-steps:2.24'
 }
