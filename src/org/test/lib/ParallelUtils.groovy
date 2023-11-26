@@ -1,5 +1,7 @@
 package org.test.lib
 
+import com.cloudbees.groovy.cps.NonCPS
+
 class ParallelUtils {
 
     def script
@@ -8,6 +10,7 @@ class ParallelUtils {
         this.script = script
     }
 
+    @NonCPS
     def runPara(environments) {
         def threads = []
 
