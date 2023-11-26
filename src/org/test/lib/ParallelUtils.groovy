@@ -1,9 +1,5 @@
 package org.test.lib
 
-import com.cloudbees.groovy.cps.NonCPS
-
-import java.util.concurrent.*
-
 class ParallelUtils {
 
     def script
@@ -12,19 +8,19 @@ class ParallelUtils {
         this.script = script
     }
 
-    @NonCPS
     def runPara(environments) {
-        script.echo "Before: ${Thread.currentThread().getName()}"
-
-        def executorService = Executors.newFixedThreadPool(environments.size())
+        def threads = []
 
         for (int i = 0; i < environments.size(); i++) {
-            def environment = environments[i]
-            executorService.submit {
+            threads.add(Thread.start {
+                def environment = environments[i]
                 script.echo "During: ${Thread.currentThread().getName()} - ${environment}"
-            }
+            })
         }
 
-        script.echo "After: ${Thread.currentThread().getName()}"
+        for (int i = 0; i < threads.size(); i++) {
+            def thread = threads[i]
+            thread.join()
+        }
     }
 }
