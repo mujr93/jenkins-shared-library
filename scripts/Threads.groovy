@@ -1,6 +1,6 @@
 class Threads {
 
-  def run(environments) {
+  Threads(environments) {
     def threads = []
 
     for (int i = 0; i < environments.size(); i++) {

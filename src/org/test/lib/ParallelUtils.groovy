@@ -9,8 +9,9 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
-        def groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File('jenkins-shared-library/scripts/Threads.groovy'))
-        def threads = groovyClass.getDeclaredConstructor().newInstance()
-        threads.run(['development', 'staging', 'production', 'testing', 'stress', 'pre-production', 'post-production', 'qa'])
+        script.echo 'Starting Para'
+        evaluate(new File("../../../../../scripts/Threads.groovy"))
+        def threads = new Threads(environments)
+        script.echo 'Ending Para'
     }
 }
