@@ -9,18 +9,8 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
-        def threads = []
-
-        for (int i = 0; i < environments.size(); i++) {
-            threads.add(Thread.start {
-                def environment = environments[i]
-                script.echo "During: ${Thread.currentThread().getName()} - ${environment}"
-            })
-        }
-
-        for (int i = 0; i < threads.size(); i++) {
-            def thread = threads[i]
-            thread.join()
-        }
+        def groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File('scripts/Threads.groovy'))
+        def threads = groovyClass.getDeclaredConstructor().newInstance()
+        threads.run(['development', 'staging', 'production', 'testing', 'stress', 'pre-production', 'post-production', 'qa'])
     }
 }
