@@ -9,7 +9,7 @@ class ParallelUtils {
     }
 
     def runPara(environments) {
-        def groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File('Threads.groovy'))
+        def groovyClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File('src/org/test/lib/Threads.groovy'))
         def threads = groovyClass.getDeclaredConstructor().newInstance()
         threads.run(['development', 'staging', 'production', 'testing', 'stress', 'pre-production', 'post-production', 'qa'])
     }
