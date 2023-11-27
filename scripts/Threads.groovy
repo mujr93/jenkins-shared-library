@@ -4,9 +4,8 @@ def threads = []
 for (int i = 0; i < environments.size(); i++) {
   def environment = environments[i]
   threads.add(Thread.start {
-    for (int j = 0; j < 100; j++) {
-      println "${Thread.currentThread().getName()}: ${environment}"
-    }
+    Thread.sleep(30000)
+    println "${Thread.currentThread().getName()}: ${environment}"
   })
 }
 
