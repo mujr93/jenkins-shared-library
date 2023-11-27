@@ -2,7 +2,7 @@ package org.test.lib
 
 class Threads {
 
-  Threads(environments) {
+  run(environments) {
     def threads = []
 
     for (int i = 0; i < environments.size(); i++) {
