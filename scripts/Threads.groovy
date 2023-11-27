@@ -3,8 +3,8 @@ def environments = ['development', 'staging', 'production', 'testing', 'stress',
 def threads = []
 
 for (int i = 0; i < environments.size(); i++) {
+  def environment = environments[i]
   threads.add(Thread.start {
-    def environment = environments[i]
     println "During: ${Thread.currentThread().getName()} - ${environment}"
   })
 }
