@@ -10,8 +10,7 @@ class ParallelUtils {
 
     def runPara(environments) {
         script.echo 'Starting Para'
-        evaluate(new File("../../../../../scripts/Threads.groovy"))
-        def threads = new Threads(environments)
+
         script.echo 'Ending Para'
     }
 }
